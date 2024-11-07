@@ -1,0 +1,10 @@
+.Rproj.user
+.Rhistory
+.Ruserdata
+
+/.luarc.json
+
+cleaned_data.csv
+clean_data.R
+
+manuscript/BailoutCB_files/
