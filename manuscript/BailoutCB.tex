@@ -165,6 +165,15 @@
       input-symbols={-,\*+()}
     ]}
   
+\usepackage{tabularray}
+\usepackage[normalem]{ulem}
+\usepackage{graphicx}
+\UseTblrLibrary{booktabs}
+\UseTblrLibrary{rotating}
+\UseTblrLibrary{siunitx}
+\NewTableCommand{\tinytableDefineColor}[3]{\definecolor{#1}{#2}{#3}}
+\newcommand{\tinytableTabularrayUnderline}[1]{\underline{#1}}
+\newcommand{\tinytableTabularrayStrikeout}[1]{\sout{#1}}
 \newcommand{\centerstart}{\begin{center}}
 \newcommand{\centerend}{\end{center}}
 \usepackage[makeroom]{cancel}
@@ -245,7 +254,7 @@ Finance},
 \makeatother
 \subtitle{The impact of fiscal indemnity on central bank profitability}
 \author{Dianyi Yang~\orcidlink{0009-0004-4652-3429}\textsuperscript{1}}
-\date{07 November 2024}
+\date{05 January 2025}
 
 \begin{document}
 \pagenumbering{roman}
@@ -606,6 +615,7 @@ promotion of the economic ideal (\citeproc{ref-Alesina1997}{Alesina,
 \citeproc{ref-FernandezAlbertos2015}{Fernández-Albertos, 2015};
 \citeproc{ref-Hallerberg2002}{Hallerberg, 2002};
 \citeproc{ref-Lohmann1997}{Lohmann, 1997};
+\citeproc{ref-Mukherjee2008}{Mukherjee \& Singer, 2008};
 \citeproc{ref-Woodruff2019}{Woodruff, 2019}). This paper adopts the
 political economy approach by assuming that indemnity decisions are
 \emph{endogenous} to preferences of the government and central bank in
@@ -2504,6 +2514,12 @@ Molho, L. (1989). European financial integration and revenue from
 seignorage: The case of italy. In \emph{SSRN} (884765). Retrieved July
 31, 2024, from \url{https://papers.ssrn.com/abstract=884765}
 
+\bibitem[\citeproctext]{ref-Mukherjee2008}
+Mukherjee, B., \& Singer, D. A. (2008). Monetary institutions,
+partisanship, and inflation targeting. \emph{International
+Organization}, \emph{62}(02).
+\url{https://doi.org/10.1017/s0020818308080119}
+
 \bibitem[\citeproctext]{ref-Munoz2007}
 Muñoz, S. (2007). \emph{{Central Bank Quasi-Fiscal Losses and High
 Inflation in Zimbabwe: A Note}} (IMF Working Papers 2007/098).
@@ -3766,22 +3782,31 @@ impact of indemnity on BoE profits}
 \centering{
 
 \centering
-\begin{tabular}[t]{lcccc}
+\begin{talltblr}[         %% tabularray outer open
+entry=none,label=none,
+note{}={+ p \num{< 0.1}, * p \num{< 0.05}, ** p \num{< 0.01}, *** p \num{< 0.001}},
+note{ }={$p$ values are reported in parentheses.},
+]                     %% tabularray outer close
+{                     %% tabularray inner open
+colspec={Q[]Q[]Q[]Q[]Q[]},
+column{1}={halign=l,},
+column{2}={halign=c,},
+column{3}={halign=c,},
+column{4}={halign=c,},
+column{5}={halign=c,},
+hline{6}={1,2,3,4,5}{solid, 0.05em, black},
+}                     %% tabularray inner close
 \toprule
-  & SDiD & DiD & SCM & DM-LFM\\
-\midrule
-$ATT^\text{def}$ & \num{0.419} & \num{0.409}*** & \num{0.435} & \num{0.392}**\\
- & (\num{0.189}) & (\num{<0.001}) & (\num{0.143}) & (\num{0.009})\\
-$ATT^\text{inf}$ & \num{-0.559} & \num{-0.516}** & \num{-0.653}+ & \num{-0.708}*\\
- & (\num{0.331}) & (\num{0.003}) & (\num{0.095}) & (\num{0.011})\\
-\midrule
-Observations & \num{504} & \num{504} & \num{504} & \num{586}\\
-Treated Units & \num{1} & \num{1} & \num{1} & \num{1}\\
-Control Units & \num{20} & \num{20} & \num{20} & \num{23}\\
+& SDiD & DiD & SCM & DM-LFM \\ \midrule %% TinyTableHeader
+$ATT^\text{def}$ & \num{0.419}   & \num{0.409}*** & \num{0.435}   & \num{0.392}** \\
+& (\num{0.220}) & (\num{<0.001}) & (\num{0.143}) & (\num{0.009}) \\
+$ATT^\text{inf}$ & \num{-0.559}  & \num{-0.516}** & \num{-0.653}+ & \num{-0.708}* \\
+& (\num{0.293}) & (\num{0.003})  & (\num{0.095}) & (\num{0.011}) \\
+Observations      & \num{504}     & \num{504}      & \num{504}     & \num{586}     \\
+Treated Units     & \num{1}       & \num{1}        & \num{1}       & \num{1}       \\
+Control Units     & \num{20}      & \num{20}       & \num{20}      & \num{23}      \\
 \bottomrule
-\multicolumn{5}{l}{\rule{0pt}{1em}+ p $<$ 0.1, * p $<$ 0.05, ** p $<$ 0.01, *** p $<$ 0.001}\\
-\multicolumn{5}{l}{\rule{0pt}{1em}$p$ values are reported in parentheses.}\\
-\end{tabular}
+\end{talltblr}
 
 }
 
