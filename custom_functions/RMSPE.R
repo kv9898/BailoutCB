@@ -1,3 +1,4 @@
+source("custom_functions/solver.R")
 RMSPE_ratio <- function (estimate) 
 {
   setup = attr(estimate, "setup")
