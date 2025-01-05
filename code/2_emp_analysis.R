@@ -656,6 +656,7 @@ alt.plot <- ggplot(alt.plot.data, aes(x = year, y = effect, color = estimator)) 
 ## sdid -----------------------------------------------
 sdid_pre <- synthdid_estimate(sdid_setup_pre$Y, sdid_setup_pre$N0, sdid_setup_pre$T0)
 sdid_post <- synthdid_estimate(sdid_setup_post$Y, sdid_setup_post$N0, sdid_setup_post$T0)
+set.seed(123)
 attributes(sdid_pre)$se <- sqrt(vcov(sdid_pre, method = "placebo"))
 attributes(sdid_post)$se <- sqrt(vcov(sdid_post, method = "placebo"))
 
@@ -765,7 +766,7 @@ cm <- c(
 )
 
 alt.table <- modelsummary(alts,
-  #output = "latex",
+  output = "latex", # comment this out for testing
   statistic = "p.value",
   stars = T,
   gof_map = gof_map, coef_map = cm, escape = F,
