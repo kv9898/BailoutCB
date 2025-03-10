@@ -58,9 +58,9 @@ acknowledgements: I would like to express my most sincere gratitude to my superv
 \newpage
 
 ```{r setup}
-knitr::opts_knit$set(root.dir = 'D:/BailoutCB')
-setwd('D:/BailoutCB')
-need <- c('tidyverse', 'latex2exp', 'modelsummary', 'kableExtra') # list packages needed
+knitr::opts_knit$set(root.dir = "D:/BailoutCB")
+setwd("D:/BailoutCB")
+need <- c("tidyverse", "latex2exp", "modelsummary", "kableExtra") # list packages needed
 have <- need %in% rownames(installed.packages()) # checks packages you have
 if (any(!have)) install.packages(need[!have]) # install missing packages
 invisible(lapply(need, library, character.only = T))
@@ -472,8 +472,8 @@ labels <- c(
 results |>
   select(rho, alpha, r0, r1, within, p1_pre, p0_pre) |>
   mutate(
-    #pi1_1 = ifelse(within,2,NA),
-    #pi1_0 = 2-(r1-r0)
+    # pi1_1 = ifelse(within,2,NA),
+    # pi1_0 = 2-(r1-r0)
     pi1_1 = 3 - (rho - p1_pre) + r1,
     pi1_0 = 3 - (rho - p0_pre) + r0
   ) |>
@@ -665,7 +665,7 @@ labels <- c("tau1" = "Deflationary (t=1)", "tau2" = "Inflationary (t=2)")
     colours = c("#F8766D", "white", "#09BFC4"),
     values = scales::rescale(c(-0.05573028, 0, 0.1659189))
   ) +
-  #scale_fill_gradient2(low="red", high="blue", midpoint=0) +
+  # scale_fill_gradient2(low="red", high="blue", midpoint=0) +
   theme_bw() +
   theme(
     legend.position = "bottom",
@@ -783,13 +783,13 @@ Summary statistics of the variables in the dataset are shown in @tbl-summary.
 #| tbl-cap: Summary statistics of the data
 #| tbl-pos: h
 datasummary(
-  (`Profit (% of GDP)` = profit_ppgdp) +
-    (`Liabilities (% of GDP)` = liabilities_ppgdp) +
-    (`Interest rate` = ir) +
-    (`Publicly traded` = traded) +
-    (`Euro Area` = Eurozone) +
-    (`Governor reappointability` = reappointable) ~
-    Mean + SD + Min + (Q1 = P25) + Median + (Q3 = P75) + Max + N,
+  (`Profit (% of GDP)` <- profit_ppgdp) +
+    (`Liabilities (% of GDP)` <- liabilities_ppgdp) +
+    (`Interest rate` <- ir) +
+    (`Publicly traded` <- traded) +
+    (`Euro Area` <- Eurozone) +
+    (`Governor reappointability` <- reappointable) ~
+    Mean + SD + Min + (Q1 <- P25) + Median + (Q3 <- P75) + Max + N,
   data = empdata,
   output = "kableExtra"
 ) |>
@@ -865,7 +865,7 @@ rbind(
     ),
     Covariates = c("No", "Yes", "No", "Yes")
   ) |>
-  #pivot_longer(c("mean","ci_l","ci_u"), names_to = "stat") |>
+  # pivot_longer(c("mean","ci_l","ci_u"), names_to = "stat") |>
   ggplot(aes(x = Covariates, y = mean, color = Covariates)) +
   facet_wrap(~period) +
   geom_point(size = 2) +
@@ -874,7 +874,7 @@ rbind(
   geom_hline(yintercept = 0, linetype = "dashed") +
   geom_errorbar(aes(ymin = ci_l, ymax = ci_u), width = .2, size = 0.5) +
   ylim(-1.5, 1) +
-  labs(x = "Covariates", y = 'Effect of indemnity on BoE profit (% GDP)')
+  labs(x = "Covariates", y = "Effect of indemnity on BoE profit (% GDP)")
 ```
 
 ```{r}
@@ -904,12 +904,12 @@ ggplot(result.use.full.cov$est.eff, aes(x = time + 2008)) +
     alpha = 0.5
   ) +
   geom_line(
-    aes(y = observed, color = 'Observed'),
+    aes(y = observed, color = "Observed"),
     linewidth = 0.75,
     alpha = 0.5
   ) +
   geom_line(
-    aes(y = estimated_counterfactual, color = 'Counterfactual'),
+    aes(y = estimated_counterfactual, color = "Counterfactual"),
     linewidth = 0.75,
     alpha = 0.5
   ) +
@@ -918,17 +918,17 @@ ggplot(result.use.full.cov$est.eff, aes(x = time + 2008)) +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1)) +
   scale_color_manual(
-    name = '',
-    breaks = c('Observed', 'Counterfactual'),
-    values = c('Observed' = "#00BFC4", "Counterfactual" = "#F8766D")
+    name = "",
+    breaks = c("Observed", "Counterfactual"),
+    values = c("Observed" = "#00BFC4", "Counterfactual" = "#F8766D")
   ) +
-  labs(x = "Year", y = 'BoE profit(% GDP)') +
+  labs(x = "Year", y = "BoE profit(% GDP)") +
   theme(legend.position = "bottom") +
   scale_x_continuous(breaks = seq(1999, 2023, 1), minor_breaks = NULL) +
   scale_fill_manual(
-    name = c("", ''),
-    breaks = c('95% CI'),
-    values = c('lightgrey')
+    name = c("", ""),
+    breaks = c("95% CI"),
+    values = c("lightgrey")
   )
 ```
 
@@ -1954,7 +1954,7 @@ Due to the complexity of the Bayesian estimation of the DM-LFM, the estimator re
 #| label: tbl-mcmc-sum
 #| tbl-cap: Summary table of DM-LFM MCMC draws for ATT
 #| tbl-pos: H
-load('stored_output/MCMC.RData')
+load("stored_output/MCMC.RData")
 sum_mcmc
 ```
 
