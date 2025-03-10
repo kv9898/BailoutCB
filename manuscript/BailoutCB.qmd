@@ -790,13 +790,13 @@ Summary statistics of the variables in the dataset are shown in @tbl-summary.
 #| tbl-cap: Summary statistics of the data
 #| tbl-pos: h
 datasummary(
-  (`Profit (% of GDP)` <- profit_ppgdp) +
-    (`Liabilities (% of GDP)` <- liabilities_ppgdp) +
-    (`Interest rate` <- ir) +
-    (`Publicly traded` <- traded) +
-    (`Euro Area` <- Eurozone) +
-    (`Governor reappointability` <- reappointable) ~
-    Mean + SD + Min + (Q1 <- P25) + Median + (Q3 <- P75) + Max + N,
+  (`Profit (% of GDP)` = profit_ppgdp) +
+    (`Liabilities (% of GDP)` = liabilities_ppgdp) +
+    (`Interest rate` = ir) +
+    (`Publicly traded` = traded) +
+    (`Euro Area` = Eurozone) +
+    (`Governor reappointability` = reappointable) ~
+    Mean + SD + Min + (Q1 = P25) + Median + (Q3 = P75) + Max + N,
   data = empdata,
   output = "kableExtra"
 ) |>
