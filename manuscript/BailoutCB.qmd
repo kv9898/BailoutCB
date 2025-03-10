@@ -91,7 +91,7 @@ The United Kingdom is unique among the advanced economies which adopted QE after
 
 As a result, the growing fiscal burden of the indemnity has become a *political* issue unique to the UK: since the Treasury began compensating the APF for losses in 2022 [@ft-indem-start], the expected total bill faced by the Treasury was repeatedly revised upwards from £50 billion to a startling £150 billion [@ft150bn]. More worryingly, the UK taxpayers are liable for these losses without the right to know. In early 2024, the House of Lords Economic Affairs Committee demanded that the full details of the indemnity agreement be published. The request was *refused* by the Treasury due to 'market sensitivities' [@Bloomberg2024]. The @HCTC2024 [para.64] concluded in a report that "there is no \[*ex post*\] reason to think that the indemnity and cashflow arrangements devised in 2009 and 2012 are the most suitable available." A group of Conservative backbenchers went so far as to demand a review of the BoE's independence. [@Independent2024].
 
-Thus far, the British experience may resemble a familar story of *moral hazard*, defined as a situation where an agent adopts riskier behaviour if the risk can be entirely or partially transferred to another party [@Landes2013]. Indeed, even Michael Saunders, a former member of the of the BoE Monetary Policy Committee admitted that the Bank is incurring larger losses on QE than other non-indemnified counterparts, because it has been taking *higher risks* by buying and selling longer-dated bonds [@ft-admit-higher-losses]*.*
+Thus far, the British experience may resemble a familiar story of *moral hazard*, defined as a situation where an agent adopts riskier behaviour if the risk can be entirely or partially transferred to another party [@Landes2013]. Indeed, even Michael Saunders, a former member of the of the BoE Monetary Policy Committee admitted that the Bank is incurring larger losses on QE than other non-indemnified counterparts, because it has been taking *higher risks* by buying and selling longer-dated bonds [@ft-admit-higher-losses]*.*
 
 Nevertheless, this paper argues that the moral hazard rationale does not depict a full picture of the story, because many important questions remain unanswered. If the indemnity arrangements were so unwise, why did the UK government agree to it in the first place? Does a naive loss comparison constitute a valid causal inference, free from selection bias? Is the indemnity a necessary condition for stable inflation, as the conventional economic theory prescribes [@Hall2015]? More importantly, do higher risks necessarily lead to higher losses and is the UK case generalisable to other countries?
 
@@ -347,7 +347,7 @@ As later shown in [Numerical Evaluation](#sec-simulation), the deflationary and 
 
 ## Numerical Evaluation {#sec-simulation}
 
-Due to the piece-wise nature of the solution to risk-taking without indemnity ($r^*(x=0)$), which can be seen in @fig-r and Appendix [-@sec-model-app-noindem], full analytical solutions are unnecessarily long and unintuitive to understand. Therefore, the SPNE outcomes are numerically evaluated and visualised with different values of $\rho$ (goverment's fiscal conservatism) and $\alpha$ (central bank's loss sensitivity). As justified in Equation (\ref{eq-rho-range}) of Appendix [-@sec-model-app-noindem], $\rho$ is set such that $\rho\in(1,2)$ to ensure both deflationary and inflationary pressures were expected by the players in period 2. $\psi$ (profit coefficient) is set to 1 for convenience, other values of $\psi$ show a similar pattern. The range for $\alpha$ is set to $\alpha\in(0,4\sqrt3]$ to ensure concavity of the utility function[^6].
+Due to the piece-wise nature of the solution to risk-taking without indemnity ($r^*(x=0)$), which can be seen in @fig-r and Appendix [-@sec-model-app-noindem], full analytical solutions are unnecessarily long and unintuitive to understand. Therefore, the SPNE outcomes are numerically evaluated and visualised with different values of $\rho$ (government's fiscal conservatism) and $\alpha$ (central bank's loss sensitivity). As justified in Equation (\ref{eq-rho-range}) of Appendix [-@sec-model-app-noindem], $\rho$ is set such that $\rho\in(1,2)$ to ensure both deflationary and inflationary pressures were expected by the players in period 2. $\psi$ (profit coefficient) is set to 1 for convenience, other values of $\psi$ show a similar pattern. The range for $\alpha$ is set to $\alpha\in(0,4\sqrt3]$ to ensure concavity of the utility function[^6].
 
 [^6]: It requires that $\alpha\leq\frac{\sqrt{\frac{8(4\psi+2)}{2-\rho}}}{\psi}\leq\frac{\sqrt{\frac{8(4+2)}{2-\rho_{\min} }}}{1}=\sqrt{\frac{48}{1}}=4\sqrt3$
 
@@ -739,7 +739,7 @@ datasummary((`Profit (% of GDP)`=profit_ppgdp) +
             (`Interest rate`=ir) + 
             (`Publicly traded`=traded) + 
             (`Euro Area`=Eurozone) + 
-            (`Govenor reappointability` = reappointable)
+            (`Governor reappointability` = reappointable)
             ~Mean+SD+Min+(Q1=P25)+Median+(Q3=P75)+Max+N,
             data=empdata, output="kableExtra") |>
     kable_styling(latex_options="scale_down")
@@ -1651,7 +1651,7 @@ x=\begin{cases}
 \end{cases}
 $$
 
-## Further Details on Numerical Evalutaion
+## Further Details on Numerical Evaluation
 
 This section describes the [Numerical Evaluation](#sec-simulation) process in detail. Note that we use $\psi=1$ throughout the evaluation.
 
