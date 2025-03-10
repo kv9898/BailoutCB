@@ -254,7 +254,7 @@ Finance},
 \makeatother
 \subtitle{The impact of fiscal indemnity on central bank profitability}
 \author{Dianyi Yang~\orcidlink{0009-0004-4652-3429}\textsuperscript{1}}
-\date{05 January 2025}
+\date{11 March 2025}
 
 \begin{document}
 \pagenumbering{roman}
@@ -416,7 +416,7 @@ most suitable available.'' A group of Conservative backbenchers went so
 far as to demand a review of the BoE's independence.
 (\citeproc{ref-Independent2024}{The Independent, 2024}).
 
-Thus far, the British experience may resemble a familar story of
+Thus far, the British experience may resemble a familiar story of
 \emph{moral hazard}, defined as a situation where an agent adopts
 riskier behaviour if the risk can be entirely or partially transferred
 to another party (\citeproc{ref-Landes2013}{Landes, 2013}). Indeed, even
@@ -1024,7 +1024,7 @@ indemnity (\(r^*(x=0)\)), which can be seen in Figure~\ref{fig-r} and
 Appendix \ref{sec-model-app-noindem}, full analytical solutions are
 unnecessarily long and unintuitive to understand. Therefore, the SPNE
 outcomes are numerically evaluated and visualised with different values
-of \(\rho\) (goverment's fiscal conservatism) and \(\alpha\) (central
+of \(\rho\) (government's fiscal conservatism) and \(\alpha\) (central
 bank's loss sensitivity). As justified in Equation (\ref{eq-rho-range})
 of Appendix \ref{sec-model-app-noindem}, \(\rho\) is set such that
 \(\rho\in(1,2)\) to ensure both deflationary and inflationary pressures
@@ -1595,7 +1595,7 @@ Liabilities (\% of GDP) & \num{43.72} & \num{55.58} & \num{0.92} & \num{16.95} &
 Interest rate & \num{1.17} & \num{1.74} & \num{-0.50} & \num{0.00} & \num{0.50} & \num{2.21} & \num{12.78} & 414\\
 Publicly traded & \num{0.13} & \num{0.33} & \num{0.00} & \num{0.00} & \num{0.00} & \num{0.00} & \num{1.00} & 586\\
 Euro Area & \num{0.65} & \num{0.48} & \num{0.00} & \num{0.00} & \num{1.00} & \num{1.00} & \num{1.00} & 586\\
-Govenor reappointability & \num{0.48} & \num{0.50} & \num{0.00} & \num{0.00} & \num{0.00} & \num{1.00} & \num{1.00} & 586\\
+Governor reappointability & \num{0.48} & \num{0.50} & \num{0.00} & \num{0.00} & \num{0.00} & \num{1.00} & \num{1.00} & 586\\
 \bottomrule
 \end{tabular}}
 
@@ -3332,7 +3332,7 @@ x=\begin{cases}
 \]
 
 \subsection{Further Details on Numerical
-Evalutaion}\label{further-details-on-numerical-evalutaion}
+Evaluation}\label{further-details-on-numerical-evaluation}
 
 This section describes the \hyperref[sec-simulation]{Numerical
 Evaluation} process in detail. Note that we use \(\psi=1\) throughout
@@ -3789,22 +3789,19 @@ note{ }={$p$ values are reported in parentheses.},
 ]                     %% tabularray outer close
 {                     %% tabularray inner open
 colspec={Q[]Q[]Q[]Q[]Q[]},
-column{1}={halign=l,},
-column{2}={halign=c,},
-column{3}={halign=c,},
-column{4}={halign=c,},
-column{5}={halign=c,},
-hline{6}={1,2,3,4,5}{solid, 0.05em, black},
+column{2,3,4,5}={}{halign=c,},
+column{1}={}{halign=l,},
+hline{6}={1,2,3,4,5}{solid, black, 0.05em},
 }                     %% tabularray inner close
 \toprule
 & SDiD & DiD & SCM & DM-LFM \\ \midrule %% TinyTableHeader
-$ATT^\text{def}$ & \num{0.419}   & \num{0.409}*** & \num{0.435}   & \num{0.392}** \\
+$ATT^\text{def}$ & \num{0.419} & \num{0.409}*** & \num{0.435} & \num{0.392}** \\
 & (\num{0.220}) & (\num{<0.001}) & (\num{0.143}) & (\num{0.009}) \\
-$ATT^\text{inf}$ & \num{-0.559}  & \num{-0.516}** & \num{-0.653}+ & \num{-0.708}* \\
-& (\num{0.293}) & (\num{0.003})  & (\num{0.095}) & (\num{0.011}) \\
-Observations      & \num{504}     & \num{504}      & \num{504}     & \num{586}     \\
-Treated Units     & \num{1}       & \num{1}        & \num{1}       & \num{1}       \\
-Control Units     & \num{20}      & \num{20}       & \num{20}      & \num{23}      \\
+$ATT^\text{inf}$ & \num{-0.559} & \num{-0.516}** & \num{-0.653}+ & \num{-0.708}* \\
+& (\num{0.293}) & (\num{0.003}) & (\num{0.095}) & (\num{0.011}) \\
+Observations & \num{504} & \num{504} & \num{504} & \num{586} \\
+Treated Units & \num{1} & \num{1} & \num{1} & \num{1} \\
+Control Units & \num{20} & \num{20} & \num{20} & \num{23} \\
 \bottomrule
 \end{talltblr}
 
