@@ -1,3 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 *.qmd linguist-detectable
+
+# Exclude `_extensions/` from GitHub language statistics
+**/_extensions/** linguist-vendored
