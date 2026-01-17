@@ -779,9 +779,9 @@ The central bank profit data ($\text{profit}_{it}$) are mainly sourced from @SCI
 
 The GDP data ($\text{GDP}_{it}$) are provided by the @WBOD2024. For most countries, the current GDP in the local currency (LCU) is used. For countries which changed their currency (to the euro) during the time span, GDP (current US\$) is used and converted to their local currency using the year-average official exchange rate, which is also sourced from @WBOD2024.
 
-In the [supplementary analysis](#sec-bias), the policy interest rates and central bank liabilities (as a percentage of GDP) are used as dependent variables. The policy interest rate data are primarily from @FRED2024[^10]. Data on central bank liabilities are obtained from same sources as profit, primarily from @SCIP2024.
+In the [supplementary analysis](#sec-bias), the policy interest rates and central bank liabilities (as a percentage of GDP) are used as dependent variables. The policy interest rate data are primarily from @FRED2024[^11]. Data on central bank liabilities are obtained from same sources as profit, primarily from @SCIP2024.
 
-[^10]: Under the name of "Immediate Rates (\<24 hours)". The only exception is the UK policy rates, which are directly sourced from the [BoE website](https://www.bankofengland.co.uk/-/media/boe/files/monetary-policy/baserate.xls).
+[^11]: Under the name of "Immediate Rates (\<24 hours)". The only exception is the UK policy rates, which are directly sourced from the [BoE website](https://www.bankofengland.co.uk/-/media/boe/files/monetary-policy/baserate.xls).
 
 ## Covariates
 
@@ -819,9 +819,9 @@ $$
 Y_{it}(c)=\mathbf{X}'_{it}\beta_{it}+\gamma_{i}'\mathbf{f}_t+\epsilon_{it}
 $$
 
-Where $\mathbf{X}_{it}$ is a matrix of observed covariates and $\beta_{it}$ are their their effects that can be *heterogeneous across units and over time*. $\mathbf{f}_t$ is vector of *latent factors* which commonly affect all units, but their effects are allowed to be *heterogeneous across units* as suggested by the subscript $i$ of their coefficients $\gamma_i$. This *latent factor term* ($\gamma_{i}'\mathbf{f}_t$) correct for biases arising from the "potential correlation between the timing of the treatment and the time-varying latent variables." (p.271) Bayesian stochastic model searching is performed to search and estimate the parameters via an MCMC algorithm[^11]. As a result, the empirical *posterior distribution* of the treated counterfactuals and ATT estimates are formed, with *95% credible intervals* given for inference.
+Where $\mathbf{X}_{it}$ is a matrix of observed covariates and $\beta_{it}$ are their their effects that can be *heterogeneous across units and over time*. $\mathbf{f}_t$ is vector of *latent factors* which commonly affect all units, but their effects are allowed to be *heterogeneous across units* as suggested by the subscript $i$ of their coefficients $\gamma_i$. This *latent factor term* ($\gamma_{i}'\mathbf{f}_t$) correct for biases arising from the "potential correlation between the timing of the treatment and the time-varying latent variables." (p.271) Bayesian stochastic model searching is performed to search and estimate the parameters via an MCMC algorithm[^12]. As a result, the empirical *posterior distribution* of the treated counterfactuals and ATT estimates are formed, with *95% credible intervals* given for inference.
 
-[^11]: MCMC diagnostics are provided in Appendix [-@sec-mcmc-diag].
+[^12]: MCMC diagnostics are provided in Appendix [-@sec-mcmc-diag].
 
 The DM-LFM is particularly more suited for this paper compared to traditional estimators such as DID and SCM: There is only one treated unit (UK) and none of the existing standard errors produces valid inference in this case for the Two-way Fixed Effects (TWFE) difference-in-differences (DID) design [@Conley2011; @MacKinnon2016; @MacKinnon2018; @MacKinnon2023; @MacKinnon2023a]. The SCM relies on placebo permutation tests for inference [@Abadie2021] which cannot quantify uncertainty in traditional ways (as confidence intervals) [@Pang2021]. This is in contrast to the DM-LFM, which is tailor-made for single (and few) treated unit(s) and provides built-in uncertainty measures (credibility intervals) that are easy to interpret.
 
@@ -953,9 +953,9 @@ Besides the placebo tests of pre-trends in Appendix [-@sec-pretrend], other chec
 
 ## Alternative Estimators
 
-Alternative estimators such as the difference-in-differences (DiD), synthetic control (SCM) and synthetic difference-in-differences (SDiD)[^12] are used to cross-check the DM-LFM [results](#sec-results) in the main analysis. The results using these alternative estimators are reported in Appendix [-@sec-alternative] alongside the main results using the DM-LFM. Although the alternative estimators cannot produce valid inference as discussed in the [Empirical Strategy](#sec-empirical), they provide comparable ATT estimates to the DM-LFM results. This suggests our results are robust.
+Alternative estimators such as the difference-in-differences (DiD), synthetic control (SCM) and synthetic difference-in-differences (SDiD)[^13] are used to cross-check the DM-LFM [results](#sec-results) in the main analysis. The results using these alternative estimators are reported in Appendix [-@sec-alternative] alongside the main results using the DM-LFM. Although the alternative estimators cannot produce valid inference as discussed in the [Empirical Strategy](#sec-empirical), they provide comparable ATT estimates to the DM-LFM results. This suggests our results are robust.
 
-[^12]: A novel estimator proposed by @Arkhangelsky2021 that combines the DiD and SCM.
+[^13]: A novel estimator proposed by @Arkhangelsky2021 that combines the DiD and SCM.
 
 ## Re-estimation with Earlier Treatment Time {#sec-main-early}
 
@@ -1081,9 +1081,9 @@ An empirical supplementary test that suggests the UK adopted a significantly mor
 
 Therefore, additional DM-LFM analyses are conducted as supplementary tests. The supplementary tests use two outcome variables to measure monetary policy: central bank policy interest rate as a direct measurement, and the central bank liabilities as an indirect measurement. Central bank liabilities (as percentage of GDP) are used as a good approximation of the *monetary base*, a tool that central banks use to affect market interest rates [@Rule2015]. Moreover, central bank liabilities are solely decided by central bank themselves, unaffected by commercial bank lending decisions (unlike other indicators of money supply such as M2) or asset price fluctuations (unlike central bank assets). Hence, higher (lower) liabilities relative to GDP are a good indicator of expansionary (contractionary) monetary policy.
 
-The results for supplementary tests are shown in @tbl-supp[^13]. Additional plots are available in Appendix [-@sec-supp]. Recall that the estimates from these supplementary tests are *conservatively* biased. This implies that the indemnity is estimated to have significantly reduced the BoE policy interest rate by at least 2.7 percentage points in the deflationary period (2009-2021); this suggests the UK adopted a significantly more expansionary monetary policy due to the indemnity. Moreover, the indemnity is also estimated to have increased the size of the BoE liabilities (interpreted as UK monetary base) by at least 11% of GDP, albeit statistically insignificant. Nevertheless, the positive coefficient can be interpreted as complementary to the interest rate results.
+The results for supplementary tests are shown in @tbl-supp[^14]. Additional plots are available in Appendix [-@sec-supp]. Recall that the estimates from these supplementary tests are *conservatively* biased. This implies that the indemnity is estimated to have significantly reduced the BoE policy interest rate by at least 2.7 percentage points in the deflationary period (2009-2021); this suggests the UK adopted a significantly more expansionary monetary policy due to the indemnity. Moreover, the indemnity is also estimated to have increased the size of the BoE liabilities (interpreted as UK monetary base) by at least 11% of GDP, albeit statistically insignificant. Nevertheless, the positive coefficient can be interpreted as complementary to the interest rate results.
 
-[^13]: Note the observations for the interest rate estimation are fewer because the data for new Euro Area members are not available from @FRED2024.
+[^14]: Note the observations for the interest rate estimation are fewer because the data for new Euro Area members are not available from @FRED2024.
 
 ```{r}
 #| label: tbl-supp
@@ -2012,13 +2012,13 @@ coda::densplot(mc_post)
 
 This section replicates the main [results](#sec-results) with alternative estimators as robustness checks. The selected estimators are all designed for estimating the effect of a binary treatment with panel data, hence potential alternatives to the DM-LFM. In addition to the familiar difference-in-differences (DiD) estimator first employed by @Card2000 and the Synthetic Control Method (SCM) proposed by @Abadie2003, we also use the synthetic difference-in-differences estimator that combines the desirable characteristics of the two [@Arkhangelsky2021]. However, none of the three estimators provides valid inference as pointed out by @Pang2021. Therefore, one should pay more attention to the point estimates of the Average Treatment Effect on the Treated (ATT) rather than the $p$ values. The results are shown in @tbl-alt alongside the main DM-LFM results with covariates from Columns (2) and (4) of @tbl-main. A comparison of the estimated treatment effects over time by estimator is visualised in @fig-alt.
 
-Please note that the three alternative estimators have smaller observations and do not include covariates because the R package[^14] used for their estimations do not support such features. For the SDiD estimates, $p$ values are generated using the placebo variance estimation[^15], which tend to under-reject the null hypothesis. For the DiD estimates, $p$ values are calculated using clustered standard errors, which tend to over-reject. For the SCM, the permutation test $p$ values are reported[^16].
+Please note that the three alternative estimators have smaller observations and do not include covariates because the R package[^15] used for their estimations do not support such features. For the SDiD estimates, $p$ values are generated using the placebo variance estimation[^16], which tend to under-reject the null hypothesis. For the DiD estimates, $p$ values are calculated using clustered standard errors, which tend to over-reject. For the SCM, the permutation test $p$ values are reported[^17].
 
-[^14]: see @R-synthdid.
+[^15]: see @R-synthdid.
 
-[^15]: See Algorithm 4 of @Arkhangelsky2021.
+[^16]: See Algorithm 4 of @Arkhangelsky2021.
 
-[^16]: see @Abadie2021 for further details on the permutation inferential procedure.
+[^17]: see @Abadie2021 for further details on the permutation inferential procedure.
 
 ```{r}
 #| label: tbl-alt
