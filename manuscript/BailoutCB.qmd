@@ -60,17 +60,12 @@ acknowledgements: I would like to express my most sincere gratitude to my superv
 \newpage
 
 ```{r setup}
-library(
-  "tidyverse",
-  "latex2exp",
-  "modelsummary",
-  "kableExtra",
-  "panelView",
-  "coda"
-) # list packages needed
-have <- need %in% rownames(installed.packages()) # checks packages you have
-if (any(!have)) install.packages(need[!have]) # install missing packages
-invisible(lapply(need, library, character.only = T))
+library(tidyverse)
+library(latex2exp)
+library(modelsummary)
+library(tinytable)
+library(panelView)
+library(coda)
 ```
 
 # Introduction
