@@ -470,6 +470,8 @@ ir.plot <- ggplot(result.use.ir$est.eff, aes(x = time + 2008)) +
     values = c("lightgrey")
   )
 
+
+### For previewing the trends only (not used in the paper)
 ggplot(ir_data, aes(x = year, y = ir, color = Country)) +
   geom_line() +
   geom_point() +
@@ -546,9 +548,6 @@ empdata |>
     y = "CB Liabilities (% GDP)"
   )
 
-save(out.ir, ir.pre, file = "stored_output/supp-ir.RData")
-save(out.bs, bs.pre, file = "stored_output/supp-bs.RData")
-
 ir.pre <- coefCustom(out.ir, custom.period = 1:13)
 ir.pre[1, ] <- effCustom(out.ir, custom.period = 1:13)[1, ]
 rownames(ir.pre) <- c("ATT", "traded", "Eurozone", "reappointable")
@@ -561,6 +560,9 @@ rownames(bs.pre) <- c("ATT", "traded", "Eurozone", "reappointable")
 bs.pre <- list(results = bs.pre, obs = nrow(empdata), tr = 1, ct = length(unique(empdata$Country)) - 1)
 class(bs.pre) <- "DMLFM"
 
+save(out.ir, ir.pre, file = "stored_output/supp-ir.RData")
+save(out.bs, bs.pre, file = "stored_output/supp-bs.RData")
+
 ## supp table -------------------------------------------------------------
 supp.table <- modelsummary(
   list(
@@ -572,10 +574,10 @@ supp.table <- modelsummary(
   gof_map = gof_map, coef_map = cm, escape = F,
   notes = c(
     "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
-    "95\\\\% equal-tailed Credible Intervals in square brackets."
+    "95\\% equal-tailed Credible Intervals in square brackets."
   )
 ) |>
-  kable_styling(latex_options = "scale_down")
+  theme_latex(resize_direction = "down")
 
 save(supp.table, ir.plot, bs.plot, file = "stored_output/suppresults.RData")
 
