@@ -402,11 +402,11 @@ profit.table.early <- modelsummary(
   gof_map = gof_map, coef_map = cm, escape = F,
   notes = c(
     "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
-    "95\\\\% equal-tailed Credible Intervals in square brackets."
+    "95\\% equal-tailed Credible Intervals in square brackets."
   )
 ) |>
-  kable_styling(latex_options = "scale_down") |>
-  add_header_above(c(" " = 1, "Deflationary (2009-2021)" = 2, "Inflationary (2022-2023)" = 2))
+  theme_latex(resize_direction = "down") |> 
+  group_tt(j = list("Deflationary (2009-2021)" = 2:3, "Inflationary (2022-2023)" = 4:5))
 
 save(profit.table.early, profit.pre.early, file = "stored_output/result.profit.early.RData")
 
