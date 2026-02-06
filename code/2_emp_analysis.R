@@ -34,6 +34,7 @@
 library(bpCausal) # https://github.com/liulch/bpCausal
 library(tidyverse)
 library(modelsummary)
+library(tinytable)
 # config_modelsummary(factory_latex = "kableExtra") #run only once for the first time to set the engine for modelsummary
 
 # READ AND MANIPULATE DATA -------------------------------------------------
@@ -297,11 +298,11 @@ profit.table <- modelsummary(list(profit.pre, profit.pre.cov, profit.post, profi
   gof_map = gof_map, coef_map = cm, escape = F,
   notes = c(
     "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
-    "95\\\\% equal-tailed Credible Intervals in square brackets."
+    "95\\% equal-tailed Credible Intervals in square brackets."
   )
 ) |>
-  kable_styling(latex_options = "scale_down") |>
-  add_header_above(c(" " = 1, "Deflationary (2009-2021)" = 2, "Inflationary (2022-2023)" = 2))
+  theme_latex(resize_direction = "down") |> 
+  group_tt(j = list("Deflationary (2009-2021)" = 2:3, "Inflationary (2022-2023)" = 4:5))
 
 save(profit.pre, profit.post, profit.pre.cov, profit.post.cov, profit.2023,
   profit.table,
