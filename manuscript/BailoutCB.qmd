@@ -1140,17 +1140,17 @@ This paper further argues that the UK is located in the *upper* part of the belt
 #| fig-pos: "H"
 #| label: fig-location
 points <- tibble::tribble(
-  ~label,
-  ~x,
-  ~y,
-  "UK",
-  1.25,
-  6,
-  "US",
-  1.45,
-  4,
-  "EA",
-  1.65,
+  ~label ,
+  ~x     ,
+  ~y     ,
+  "UK"   ,
+  1.25   ,
+  6      ,
+  "US"   ,
+  1.45   ,
+  4      ,
+  "EA"   ,
+  1.65   ,
   2
 ) |>
   as.data.frame()
