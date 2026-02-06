@@ -399,7 +399,7 @@ When $\alpha$ is low, the central bank cares less about financial losses. Conseq
 
 [^7]: Mathematically, as $\alpha\to0$, the loss-aversion term in the central bank's utility function $U_{Bt} = -(\pi_t-2)^2 + \alpha(1-x_t)\min\{p_t,0\}$ vanishes, making the non-indemnified bank's optimization problem converge to that of an indemnified bank. Here, $\pi_t$ is the inflation rate and $p_t$ is the central bank profit. This convergence implies that period 2 outcomes become similar regardless of indemnity status, reducing the government's opportunity cost of indemnification.
 
-Nevertheless, part of this effect is offset by first-period considerations. A less sensitive non-indemnified central bank is almost as willing to take high risks in period 1 as an indemnified bank would, which implies that the government's benefits from indemnification are lower in the first period. The net effect still favors indemnification for low $\alpha$, but the magnitude is dampened by this offsetting mechanism.
+Nevertheless, part of this effect is offset by first-period considerations. A less sensitive non-indemnified central bank is almost as willing to take high risks in period 1 as an indemnified bank would, which implies that the government's benefits from indemnification are lower in the first period. The net effect still favours indemnification for low $\alpha$, but the magnitude is dampened by this offsetting mechanism.
 
 Nevertheless, it will be shown in the @sec-discussion that the UK is likely a combination of relative fiscal liberalism (low $\rho$) and high central bank financial sensitivity ($\alpha$), due to the lack of independence of the BoE.
 
