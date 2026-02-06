@@ -735,7 +735,7 @@ empdata <- read_rds("cleaned_data.rds")
 
 For empirical analysis, panel data on `r empdata$Country |> unique() |> length()` countries across `r empdata$year |> unique() |> length()` years (1999-2023) are used. There are missing data for some countries, resulting in `r nrow(empdata)` observations available. Countries are selected into the sample if they 1) are members of the OECD or EU as proxies for advanced economies and 2) introduced QE soon after the 2007-2008 GFC to exclude countries which never introduced QE or introduced QE after COVID-19, which are not comparable to the UK. More information on sample selection and justification is provided in Appendix [-@sec-sample]. 1999 is chosen as the start date because the euro (€) was introduced in that year, which constituted a major monetary change. The data availability information is summarised in @fig-panel. Treatment is assigned to the UK from 2009 onward, when the Asset Purchase Faciliy (APF) was created under the UK Treasury's indemnity.
 
-```{r panelview}
+```{r}
 #| fig-cap: "Overview of the panel data availability"
 #| fig-pos: "H"
 #| label: fig-panel
