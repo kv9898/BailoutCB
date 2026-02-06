@@ -47,6 +47,8 @@ format:
           \newtheorem{subhyp}{Hypothesis}[hyp]
           \renewcommand{\thesubhyp}{\thehyp\alph{subhyp}}
           \usetikzlibrary{math}
+          \usepackage{codehigh}
+          \UseTblrLibrary{booktabs}
 bibliography: references.bib
 csl: extra/apa.csl
 abstract: |
