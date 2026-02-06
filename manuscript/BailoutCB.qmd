@@ -58,8 +58,6 @@ acknowledgements: I would like to express my most sincere gratitude to my superv
 \newpage
 
 ```{r setup}
-knitr::opts_knit$set(root.dir = "D:/BailoutCB")
-setwd("D:/BailoutCB")
 need <- c(
   "tidyverse",
   "latex2exp",

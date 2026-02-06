@@ -11,3 +11,6 @@ manuscript/BailoutCB_files/
 manuscript/BailoutCB.pdf
 
 *.bak
+
+/.quarto/
+**/*.quarto_ipynb
