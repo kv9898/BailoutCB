@@ -58,7 +58,7 @@ acknowledgements: I would like to express my most sincere gratitude to my superv
 \newpage
 
 ```{r setup}
-need <- c(
+library(
   "tidyverse",
   "latex2exp",
   "modelsummary",
