@@ -2019,7 +2019,7 @@ Please note that the three alternative estimators have smaller observations and 
 #| tbl-cap: Results with alternative estimators for the impact of indemnity on BoE profits
 #| tbl-pos: H
 load("stored_output/alt.RData")
-alt.table
+# alt.table # todo: fix table display
 ```
 
 ```{r}
@@ -2027,7 +2027,7 @@ alt.table
 #| fig-pos: "H"
 #| label: fig-alt
 #| fig-height: 4.5
-alt.plot
+# alt.plot # todo: fix plot
 ```
 
 \newpage
