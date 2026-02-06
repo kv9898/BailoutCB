@@ -801,10 +801,9 @@ datasummary(
     (`Euro Area` = Eurozone) +
     (`Governor reappointability` = reappointable) ~
     Mean + SD + Min + (Q1 = P25) + Median + (Q3 = P75) + Max + N,
-  data = empdata,
-  output = "kableExtra"
+  data = empdata
 ) |>
-  kable_styling(latex_options = "scale_down")
+  theme_latex(resize_direction = "down")
 ```
 
 # Empirical Strategy {#sec-empirical}
