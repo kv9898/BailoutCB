@@ -187,7 +187,7 @@ placebo.table <- modelsummary(list(profit.placebo.nocov, profit.placebo),
   gof_map = gof_map, coef_map = cm, escape = F,
   notes = c(
     "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
-    "95\\\\% equal-tailed Credible Intervals in square brackets."
+    "95\\% equal-tailed Credible Intervals in square brackets."
   )
 )
 save(profit.placebo, placebo.plot, placebo.table, file = "stored_output/profit.placebo.RData")
