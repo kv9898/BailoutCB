@@ -7,8 +7,6 @@
 # R Script
 # Purpose: This script generates the numerical evaluation results for the formal model.
 # Created: 24 JUL 2024
-# Updated: 02 Sep 2024
-# Packages used: tidyverse (2.0.0)
 # Inputs: None
 # Outputs: stored_output/formal_results.rds
 

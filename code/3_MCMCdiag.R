@@ -7,9 +7,6 @@
 # R Script
 # Purpose: This script is responsible for the MCMC diagnosis of Main Analysis.
 # Created: 13 Aug 2024
-# Updated: 03 Sep 2024
-# Packages used: coda (0.19-4.1)
-#                kableExtra (1.4.0)
 # Inputs: stored_output/result.profit.full.RData
 # Outputs: stored_output/MCMC.RData
 

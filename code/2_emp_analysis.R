@@ -8,13 +8,6 @@
 # Purpose: This script is responsible for the empirical analysis of the paper,
 #          including, that in the appendices, except for the MCMC diagnosis.
 # Created: 09 Aug 2024
-# Updated: 07 Nov 2024
-# Packages used: tidyverse (2.0.0)
-#                bpCausal (0.0.1)
-#                modelsummary (2.1.1)
-#                synthdid  (0.0.9)
-#                fixest (0.12.1)
-#                kableExtra (1.4.0)
 # Inputs: cleaned_data.rds
 #         custom_functions/DM-LFM.r
 #         custom_functions/solver.R
