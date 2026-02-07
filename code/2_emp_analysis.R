@@ -676,8 +676,8 @@ alts[["SDiD"]][["post"]] <- data.frame(
 
 ## did -----------------------------------------------
 
-did_pre <- feols(profit_ppgdp ~ treat | Country + year, data = subset(did_data, year < 2022))
-did_post <- feols(profit_ppgdp ~ treat | Country + year, data = subset(did_data, year >= 2022 | year < 2009))
+did_pre <- feols(profit_ppgdp ~ treat | Country + year, data = subset(did_data, year < 2022), cluster = "Country")
+did_post <- feols(profit_ppgdp ~ treat | Country + year, data = subset(did_data, year >= 2022 | year < 2009), cluster = "Country")
 
 alts[["DiD"]][["pre"]] <- get_estimates(did_pre)[, c(2, 9)]
 alts[["DiD"]][["post"]] <- get_estimates(did_post)[, c(2, 9)]
