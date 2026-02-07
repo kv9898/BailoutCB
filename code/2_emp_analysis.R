@@ -35,7 +35,6 @@ library(bpCausal) # https://github.com/liulch/bpCausal
 library(tidyverse)
 library(modelsummary)
 library(tinytable)
-# config_modelsummary(factory_latex = "kableExtra") #run only once for the first time to set the engine for modelsummary
 
 # READ AND MANIPULATE DATA -------------------------------------------------
 empdata <- read_rds("cleaned_data.rds")
