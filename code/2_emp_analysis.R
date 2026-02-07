@@ -34,7 +34,7 @@
 library(bpCausal) # https://github.com/liulch/bpCausal
 library(tidyverse)
 library(modelsummary)
-# config_modelsummary(factory_latex = "kableExtra") #run only once for the first time to set the engine for modelsummary
+library(tinytable)
 
 # READ AND MANIPULATE DATA -------------------------------------------------
 empdata <- read_rds("cleaned_data.rds")
@@ -187,7 +187,7 @@ placebo.table <- modelsummary(list(profit.placebo.nocov, profit.placebo),
   gof_map = gof_map, coef_map = cm, escape = F,
   notes = c(
     "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
-    "95\\\\% equal-tailed Credible Intervals in square brackets."
+    "95\\% equal-tailed Credible Intervals in square brackets."
   )
 )
 save(profit.placebo, placebo.plot, placebo.table, file = "stored_output/profit.placebo.RData")
@@ -297,11 +297,11 @@ profit.table <- modelsummary(list(profit.pre, profit.pre.cov, profit.post, profi
   gof_map = gof_map, coef_map = cm, escape = F,
   notes = c(
     "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
-    "95\\\\% equal-tailed Credible Intervals in square brackets."
+    "95\\% equal-tailed Credible Intervals in square brackets."
   )
 ) |>
-  kable_styling(latex_options = "scale_down") |>
-  add_header_above(c(" " = 1, "Deflationary (2009-2021)" = 2, "Inflationary (2022-2023)" = 2))
+  theme_latex(resize_direction = "down") |> 
+  group_tt(j = list("Deflationary (2009-2021)" = 2:3, "Inflationary (2022-2023)" = 4:5))
 
 save(profit.pre, profit.post, profit.pre.cov, profit.post.cov, profit.2023,
   profit.table,
@@ -401,11 +401,11 @@ profit.table.early <- modelsummary(
   gof_map = gof_map, coef_map = cm, escape = F,
   notes = c(
     "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
-    "95\\\\% equal-tailed Credible Intervals in square brackets."
+    "95\\% equal-tailed Credible Intervals in square brackets."
   )
 ) |>
-  kable_styling(latex_options = "scale_down") |>
-  add_header_above(c(" " = 1, "Deflationary (2009-2021)" = 2, "Inflationary (2022-2023)" = 2))
+  theme_latex(resize_direction = "down") |> 
+  group_tt(j = list("Deflationary (2009-2021)" = 2:3, "Inflationary (2022-2023)" = 4:5))
 
 save(profit.table.early, profit.pre.early, file = "stored_output/result.profit.early.RData")
 
@@ -469,6 +469,8 @@ ir.plot <- ggplot(result.use.ir$est.eff, aes(x = time + 2008)) +
     values = c("lightgrey")
   )
 
+
+### For previewing the trends only (not used in the paper)
 ggplot(ir_data, aes(x = year, y = ir, color = Country)) +
   geom_line() +
   geom_point() +
@@ -545,9 +547,6 @@ empdata |>
     y = "CB Liabilities (% GDP)"
   )
 
-save(out.ir, ir.pre, file = "stored_output/supp-ir.RData")
-save(out.bs, bs.pre, file = "stored_output/supp-bs.RData")
-
 ir.pre <- coefCustom(out.ir, custom.period = 1:13)
 ir.pre[1, ] <- effCustom(out.ir, custom.period = 1:13)[1, ]
 rownames(ir.pre) <- c("ATT", "traded", "Eurozone", "reappointable")
@@ -560,6 +559,9 @@ rownames(bs.pre) <- c("ATT", "traded", "Eurozone", "reappointable")
 bs.pre <- list(results = bs.pre, obs = nrow(empdata), tr = 1, ct = length(unique(empdata$Country)) - 1)
 class(bs.pre) <- "DMLFM"
 
+save(out.ir, ir.pre, file = "stored_output/supp-ir.RData")
+save(out.bs, bs.pre, file = "stored_output/supp-bs.RData")
+
 ## supp table -------------------------------------------------------------
 supp.table <- modelsummary(
   list(
@@ -571,10 +573,10 @@ supp.table <- modelsummary(
   gof_map = gof_map, coef_map = cm, escape = F,
   notes = c(
     "+ p < 0.1, * p < 0.05, ** p < 0.01, *** p < 0.001",
-    "95\\\\% equal-tailed Credible Intervals in square brackets."
+    "95\\% equal-tailed Credible Intervals in square brackets."
   )
 ) |>
-  kable_styling(latex_options = "scale_down")
+  theme_latex(resize_direction = "down")
 
 save(supp.table, ir.plot, bs.plot, file = "stored_output/suppresults.RData")
 
@@ -673,8 +675,8 @@ alts[["SDiD"]][["post"]] <- data.frame(
 
 ## did -----------------------------------------------
 
-did_pre <- feols(profit_ppgdp ~ treat | Country + year, data = subset(did_data, year < 2022))
-did_post <- feols(profit_ppgdp ~ treat | Country + year, data = subset(did_data, year >= 2022 | year < 2009))
+did_pre <- feols(profit_ppgdp ~ treat | Country + year, data = subset(did_data, year < 2022), cluster = "Country")
+did_post <- feols(profit_ppgdp ~ treat | Country + year, data = subset(did_data, year >= 2022 | year < 2009), cluster = "Country")
 
 alts[["DiD"]][["pre"]] <- get_estimates(did_pre)[, c(2, 9)]
 alts[["DiD"]][["post"]] <- get_estimates(did_post)[, c(2, 9)]
